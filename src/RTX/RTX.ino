@@ -29,7 +29,7 @@ void loop() {
   digitalWrite(pinocho, LOW);
   digitalWrite(relay1, LOW);  // Ambos relés apagados
   digitalWrite(relay2, LOW);
-  if (pingTravelTime < 1000) //cuando la distancia sea menor a 10cm
+  if (pingTravelTime < 4000) //cuando la distancia sea menor a 10cm
   {
     digitalWrite(relay1, HIGH);  // Ambos relés apagados
     digitalWrite(relay2, LOW);
