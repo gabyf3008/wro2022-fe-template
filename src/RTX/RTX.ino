@@ -11,6 +11,9 @@ int waitCorner = 0;
 int sentido = -1;      //la dirección (1 horario, -1 antihorario)
 
 void setup() {
+  pinMode(relay1, OUTPUT);
+  pinMode(relay2, OUTPUT);
+  
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
   pinMode(pinocho, OUTPUT);
@@ -24,15 +27,13 @@ void loop() {
     waitCorner = waitCorner-1;
   }*/
   digitalWrite(pinocho, LOW);
-  if (pingTravelTime < 3000) //cuando la distancia sea menor a 10cm
+  digitalWrite(relay1, LOW);  // Ambos relés apagados
+  digitalWrite(relay2, LOW);
+  if (pingTravelTime < 1000) //cuando la distancia sea menor a 10cm
   {
     digitalWrite(relay1, HIGH);  // Ambos relés apagados
     digitalWrite(relay2, LOW);
-  }
-  else
-  {
-    digitalWrite(relay1, LOW);  // Ambos relés apagados
-    digitalWrite(relay2, LOW);
+    digitalWrite(pinocho, LOW);
   }
   
   digitalWrite(trigPin, HIGH);
